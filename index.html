@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertify - Conversor de Vídeo e Áudio</title>
+    <meta name="description" content="Converta seus vídeos e áudios com facilidade e rapidez. Suporta MP4, MOV, MKV, MP3, OGG e WAV.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Convertify</h1>
+        <p class="subtitle">A ferramenta premium para conversão de mídia. Rápido, simples e direto no seu navegador.</p>
+    </header>
+
+    <main>
+        <div class="converter-card">
+            <!-- Drop Zone -->
+            <div class="drop-zone" id="drop-zone">
+                <input type="file" id="file-input" accept=".mp4,.mov,.mkv,.mp3,.ogg,.wav">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Arraste seu arquivo aqui ou <span>clique para explorar</span></p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem;">Formatos: MP4, MOV, MKV, MP3, OGG, WAV</p>
+            </div>
+
+            <!-- File Info (Hidden initially) -->
+            <div class="file-info" id="file-info">
+                <div class="file-details">
+                    <i class="fas fa-file-video" id="file-icon"></i>
+                    <span class="file-name" id="file-name-display">video_original.mp4</span>
+                </div>
+                <button class="format-btn" id="remove-file" title="Remover arquivo">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Format Selection -->
+            <div class="format-section">
+                <span class="format-label">Converter para:</span>
+                
+                <div id="video-options" style="margin-bottom: 1rem;">
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">VÍDEO</p>
+                    <div class="format-grid">
+                        <button class="format-btn" data-format="mp4">MP4</button>
+                        <button class="format-btn" data-format="mov">MOV</button>
+                        <button class="format-btn" data-format="mkv">MKV</button>
+                    </div>
+                </div>
+
+                <div id="audio-options">
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem;">ÁUDIO</p>
+                    <div class="format-grid">
+                        <button class="format-btn" data-format="mp3">MP3</button>
+                        <button class="format-btn" data-format="ogg">OGG</button>
+                        <button class="format-btn" data-format="wav">WAV</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <button class="convert-btn" id="convert-btn" disabled>
+                <div class="loading-spinner" id="spinner"></div>
+                <span id="btn-text">CONVERTER AGORA</span>
+                <i class="fas fa-bolt" id="btn-icon"></i>
+            </button>
+
+            <!-- Progress Bar -->
+            <div class="status-container" id="status-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="status-text" id="status-text">Processando arquivo...</p>
+            </div>
+
+            <!-- Warning -->
+            <div class="limit-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Nota: Devido aos limites da Vercel, arquivos devem ter menos de 4.5MB para conversão no servidor.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Convertify. Feito com <i class="fas fa-heart" style="color: var(--secondary);"></i> usando Python & Vercel.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
